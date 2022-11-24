@@ -15,24 +15,24 @@ tasks = [
 # if they are not completed aka False
 # return the name of the task
 
-def uncompleted_tasks():
+def get_uncompleted_tasks(list_of_tasks): #adding the parameter cos I want to make it reusable
     uncompleted = []
-    for task in tasks:
+    for task in list_of_tasks:
         if task["completed"] == False:
             uncompleted.append(task["description"])
     print("HEY HEY! Duck reminder - Aren't you forgetting something?")        
     return(uncompleted)
 
-print(uncompleted_tasks())
+print(get_uncompleted_tasks(tasks))
 
-#Feedback: it took me over an hour to figure a few errors. One of them that the return was inside the if conditional, so it was only returning one value. Gods.
-#added print with fancy into message cause this exercise deserved it
+# Feedback: it took me over an hour to figure a few errors. One of them was that I wrote the return inside the if conditional, so it was only returning one value. Gods.
+# added print with a fancy intro message cause this exercise deserved it
 
 # 2. Print a list of completed tasks
 
-def completed_tasks():
+def completed_tasks(list_of_tasks):
     super_done = []
-    for task in tasks:
+    for task in list_of_tasks:
         if task["completed"] == True:
             super_done.append(task["description"])
     print("OMG so proud of you for doing:")
@@ -47,9 +47,9 @@ print(completed_tasks())
 # find the task names aka descriptions
 # add them to a list to print them
 
-def to_do_list():
+def to_do_list(list_of_tasks):
     pending_tasks = []
-    for task in tasks:
+    for task in list_of_tasks:
         pending_tasks.append(task["description"])
     print("when life gives you lemons... don't forget to do your chores:")
     return(pending_tasks)
@@ -65,9 +65,9 @@ print(to_do_list())
 # if they are >= the parameter, return the name of the task aka description
 
 
-def done_in_expected_time(time):
+def done_in_expected_time(list_of_tasks):
     list_of_chores = []
-    for task in tasks:
+    for task in list_of_tasks:
         task["time_taken"]
         if task["time_taken"] >= time:
             list_of_chores.append(task["description"])
@@ -87,8 +87,8 @@ print(done_in_expected_time(60))
 # compare the argument with the description of the task
 # print the whole task array
 
-def task_checker(name):
-    for task in tasks:
+def task_checker(list_of_tasks):
+    for task in list_of_tasks:
         if task["description"] == name:
             return(f"Yes! your {task['description']} task")
 
